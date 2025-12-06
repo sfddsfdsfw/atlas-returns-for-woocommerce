@@ -84,7 +84,7 @@ $remaining = $plugin->get_remaining_returns();
 						printf(
 							/* translators: %d: Number of returns remaining */
 							esc_html__( '%d returns remaining this month', 'atlas-returns-for-woocommerce' ),
-							$remaining
+							intval( $remaining )
 						);
 						?>
 					</p>
