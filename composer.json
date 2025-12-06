@@ -1,0 +1,42 @@
+{
+    "name": "pluginatlas/atlas-returns-for-woocommerce",
+    "description": "Professional return and exchange management for WooCommerce stores",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "PluginAtlas",
+            "homepage": "https://pluginatlas.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AtlasReturns\\": "includes/",
+            "AtlasReturns\\Pro\\": "includes-pro/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AtlasReturns\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpcs": "phpcs --standard=WordPress-Extra --extensions=php .",
+        "phpcbf": "phpcbf --standard=WordPress-Extra --extensions=php ."
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

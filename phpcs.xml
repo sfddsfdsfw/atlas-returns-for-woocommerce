@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<ruleset name="Atlas Returns Coding Standards">
+    <description>PHP Code Sniffer configuration for Atlas Returns for WooCommerce.</description>
+
+    <!-- What to scan -->
+    <file>.</file>
+
+    <!-- Exclude paths -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/freemius/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/assets/dist/*</exclude-pattern>
+    <exclude-pattern>*.min.js</exclude-pattern>
+    <exclude-pattern>*.min.css</exclude-pattern>
+
+    <!-- How to scan -->
+    <arg value="sp"/> <!-- Show sniff and progress -->
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="8"/>
+
+    <!-- Rules: WordPress Coding Standards -->
+    <rule ref="WordPress-Extra">
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <!-- Allow file names without prefix for PSR-4 -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+    </rule>
+
+    <!-- Rules: WordPress VIP Go (security focused) -->
+    <rule ref="WordPress.Security"/>
+
+    <!-- Allow short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- Text domain -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="atlas-returns"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Minimum PHP and WP versions -->
+    <config name="minimum_supported_wp_version" value="6.0"/>
+    <config name="testVersion" value="7.4-"/>
+
+    <!-- PHPCompatibility -->
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Allow _ prefix for private methods -->
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Views can use some things we don't want elsewhere -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
+
+
+    <!-- Allow some relaxations for view files -->
+    <rule ref="Squiz.PHP.EmbeddedPhp">
+        <exclude-pattern>*/views/*</exclude-pattern>
+    </rule>
+
+    <!-- Allow our custom capability -->
+    <rule ref="WordPress.WP.Capabilities.Unknown">
+        <properties>
+            <property name="custom_capabilities" type="array">
+                <element value="manage_atlas_returns"/>
+                <element value="access_return_management"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Reduce severity of warnings we've reviewed -->
+    <rule ref="WordPress.Security.NonceVerification.Missing">
+        <type>warning</type>
+    </rule>
+    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared">
+        <type>warning</type>
+    </rule>
+</ruleset>

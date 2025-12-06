@@ -1,0 +1,21 @@
+{
+    "name": "atlas-returns-for-woocommerce",
+    "version": "2.0.0",
+    "description": "Professional return and exchange management for WooCommerce stores",
+    "author": "PluginAtlas",
+    "license": "GPL-2.0-or-later",
+    "scripts": {
+        "dev": "wp-scripts start --webpack-src-dir=assets/src --output-path=assets/dist",
+        "build": "wp-scripts build --webpack-src-dir=assets/src --output-path=assets/dist",
+        "build:pot": "wp i18n make-pot . languages/atlas-returns.pot --exclude=node_modules,vendor,tests",
+        "lint:js": "wp-scripts lint-js assets/src",
+        "lint:css": "wp-scripts lint-style assets/src",
+        "packages-update": "wp-scripts packages-update"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^27.0.0"
+    },
+    "dependencies": {
+        "chart.js": "^4.4.0"
+    }
+}

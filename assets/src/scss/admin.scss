@@ -1,0 +1,505 @@
+/**
+ * Atlas Returns Admin Styles
+ *
+ * @package AtlasReturns
+ */
+
+// Variables
+$primary-color: #0073aa;
+$primary-hover: #005a87;
+$success-color: #46b450;
+$warning-color: #dc3232;
+$info-color: #00a0d2;
+$border-color: #ccc;
+$bg-light: #f5f5f5;
+$bg-white: #fff;
+$text-color: #333;
+$text-muted: #666;
+
+// Mixins
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin transition($props) {
+    transition: $props;
+}
+
+// Main wrapper
+.atlr-wrap {
+    max-width: 1200px;
+    margin: 20px 0;
+
+    h1 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .atlr-version {
+        font-size: 12px;
+        color: $text-muted;
+        font-weight: normal;
+    }
+
+    .atlr-upgrade-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff !important;
+        padding: 6px 16px;
+        @include border-radius(4px);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        @include transition(all 0.3s ease);
+
+        &:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+    }
+}
+
+// Limit notice
+.atlr-limit-notice {
+    background: #fff8e5;
+    border-left: 4px solid #ffb900;
+    padding: 10px 15px;
+    margin: 15px 0;
+    @include border-radius(0 4px 4px 0);
+
+    &.atlr-limit-exceeded {
+        background: #fbeaea;
+        border-left-color: $warning-color;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        font-weight: 600;
+    }
+}
+
+// Info box
+.atlr-info-box {
+    background: #fffde7;
+    border: 1px solid #ffd54f;
+    @include border-radius(8px);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+
+    h2 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        color: $text-color;
+    }
+
+    .atlr-reason-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+
+            &[style*="display: block"] {
+                display: block !important;
+            }
+
+            strong {
+                color: $primary-color;
+            }
+
+            .atlr-pro-badge {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: #fff;
+                padding: 2px 8px;
+                @include border-radius(3px);
+                font-size: 10px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-left: 8px;
+            }
+        }
+    }
+}
+
+// Form styles
+.atlr-form {
+    background: $bg-white;
+    @include border-radius(8px);
+    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    padding: 25px;
+    margin-bottom: 20px;
+
+    .atlr-form-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+
+        @media (max-width: 782px) {
+            flex-direction: column;
+        }
+    }
+
+    .atlr-form-field {
+        flex: 1;
+        min-width: 250px;
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: $text-color;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid $border-color;
+            @include border-radius(4px);
+            font-size: 14px;
+            @include transition(border-color 0.2s, box-shadow 0.2s);
+
+            &:focus {
+                border-color: $primary-color;
+                @include box-shadow(0 0 0 2px rgba($primary-color, 0.2));
+                outline: none;
+            }
+        }
+
+        .description {
+            font-size: 12px;
+            color: $text-muted;
+            margin-top: 5px;
+        }
+    }
+
+    .atlr-form-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 10px;
+
+        .button-primary {
+            padding: 8px 24px;
+            font-size: 14px;
+            height: auto;
+        }
+    }
+
+    .atlr-spinner {
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid $border-color;
+        border-top-color: $primary-color;
+        border-radius: 50%;
+        animation: atlr-spin 0.8s linear infinite;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+// Preview section
+.atlr-preview {
+    background: $bg-white;
+    @include border-radius(8px);
+    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    padding: 25px;
+
+    h2 {
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $primary-color;
+        color: $text-color;
+    }
+
+    h3 {
+        color: $primary-color;
+        font-size: 15px;
+        margin: 20px 0 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $border-color;
+    }
+}
+
+// Order info
+.atlr-order-info {
+    background: $bg-light;
+    padding: 15px;
+    @include border-radius(4px);
+    margin-bottom: 15px;
+
+    p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    strong {
+        color: $text-color;
+    }
+}
+
+// Order items
+.atlr-order-items,
+.atlr-return-products,
+.atlr-new-products {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        @include border-radius(4px);
+        font-size: 13px;
+        background: $bg-light;
+
+        code,
+        strong {
+            font-weight: 600;
+        }
+    }
+}
+
+// Status colors
+.atlr-warning {
+    color: $warning-color;
+    font-weight: bold;
+}
+
+.atlr-success {
+    color: $success-color;
+    font-weight: bold;
+}
+
+.atlr-warning-text li {
+    background: #fef3f3;
+    border-left: 3px solid $warning-color;
+}
+
+.atlr-success-text li {
+    background: #f0f9f1;
+    border-left: 3px solid $success-color;
+}
+
+.atlr-out-of-stock {
+    .atlr-stock {
+        color: $warning-color;
+        font-weight: bold;
+    }
+}
+
+// Cost breakdown
+.atlr-cost-breakdown {
+    background: $bg-light;
+    padding: 15px;
+    @include border-radius(4px);
+
+    p {
+        margin: 8px 0;
+        font-size: 14px;
+    }
+
+    .atlr-total-difference {
+        font-size: 16px;
+        padding-top: 10px;
+        border-top: 1px solid $border-color;
+        margin-top: 10px;
+    }
+}
+
+// Coupon option
+.atlr-coupon-option {
+    background: #e8f4fc;
+    padding: 15px;
+    @include border-radius(4px);
+    margin-top: 15px;
+    border: 1px solid $info-color;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        color: $primary-color;
+    }
+
+    input[type="checkbox"] {
+        transform: scale(1.3);
+    }
+}
+
+// Loading overlay
+.atlr-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    .atlr-loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid $border-color;
+        border-top-color: $primary-color;
+        border-radius: 50%;
+        animation: atlr-spin 0.8s linear infinite;
+    }
+}
+
+// History table
+.atlr-history-table {
+    .column-id {
+        width: 60px;
+    }
+
+    .column-original,
+    .column-return {
+        width: 120px;
+    }
+
+    .column-reason {
+        width: 180px;
+    }
+
+    .column-cost {
+        width: 120px;
+
+        &.atlr-positive {
+            color: $success-color;
+        }
+
+        &.atlr-negative {
+            color: $warning-color;
+        }
+    }
+
+    .column-date {
+        width: 180px;
+    }
+
+    .column-status {
+        width: 100px;
+    }
+}
+
+// Status badges
+.atlr-status {
+    display: inline-block;
+    padding: 3px 10px;
+    @include border-radius(3px);
+    font-size: 12px;
+    font-weight: 600;
+
+    &.atlr-status-completed {
+        background: #e7f5e9;
+        color: $success-color;
+    }
+
+    &.atlr-status-pending {
+        background: #fff3e0;
+        color: #ff9800;
+    }
+
+    &.atlr-status-processing {
+        background: #e3f2fd;
+        color: #2196f3;
+    }
+}
+
+// No returns message
+.atlr-no-returns {
+    text-align: center;
+    padding: 40px;
+    background: $bg-white;
+    @include border-radius(8px);
+    @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+
+    p {
+        font-size: 16px;
+        color: $text-muted;
+        margin-bottom: 20px;
+    }
+}
+
+// Settings page
+.atlr-settings-form {
+    max-width: 800px;
+
+    .form-table th {
+        width: 250px;
+    }
+}
+
+.atlr-pro-features {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 25px;
+    @include border-radius(8px);
+    margin-top: 30px;
+    max-width: 500px;
+
+    h2 {
+        margin-top: 0;
+        color: #fff;
+    }
+
+    ul {
+        margin: 20px 0;
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+
+            &::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .button {
+        background: #fff;
+        color: #764ba2;
+        border: none;
+        font-weight: 600;
+
+        &:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+    }
+}
+
+// Animations
+@keyframes atlr-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

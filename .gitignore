@@ -1,0 +1,40 @@
+# Dependencies
+/node_modules/
+/vendor/
+
+# Build artifacts (commit dist/ for releases)
+# /assets/dist/
+
+# Development files
+.DS_Store
+Thumbs.db
+*.log
+*.cache
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.local
+
+# Testing
+/coverage/
+.phpunit.result.cache
+
+# Composer
+composer.lock
+
+# npm
+package-lock.json
+
+# Freemius SDK (downloaded separately)
+# /freemius/
+
+# Local development
+*.sql
+*.bak
+debug.log
