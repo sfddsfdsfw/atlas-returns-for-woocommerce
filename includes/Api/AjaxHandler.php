@@ -95,6 +95,7 @@ class AjaxHandler {
 	public function preview_order() {
 		$this->verify_request();
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified in verify_request().
 		$identifier = isset( $_POST['order_id'] ) ? sanitize_text_field( wp_unslash( $_POST['order_id'] ) ) : '';
 
 		if ( empty( $identifier ) ) {
@@ -119,11 +120,13 @@ class AjaxHandler {
 	public function calculate_return() {
 		$this->verify_request();
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verified in verify_request().
 		$identifier          = isset( $_POST['order_id'] ) ? sanitize_text_field( wp_unslash( $_POST['order_id'] ) ) : '';
 		$reason              = isset( $_POST['reason'] ) ? sanitize_text_field( wp_unslash( $_POST['reason'] ) ) : '';
 		$products_to_replace = isset( $_POST['products_to_replace'] ) ? sanitize_text_field( wp_unslash( $_POST['products_to_replace'] ) ) : '';
 		$new_products        = isset( $_POST['new_products'] ) ? sanitize_text_field( wp_unslash( $_POST['new_products'] ) ) : '';
 		$validate            = isset( $_POST['validate'] ) ? filter_var( wp_unslash( $_POST['validate'] ), FILTER_VALIDATE_BOOLEAN ) : true;
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 
 		$order = $this->get_order_by_identifier( $identifier );
 
@@ -167,11 +170,13 @@ class AjaxHandler {
 			);
 		}
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verified in verify_request().
 		$identifier          = isset( $_POST['order_id'] ) ? sanitize_text_field( wp_unslash( $_POST['order_id'] ) ) : '';
 		$reason              = isset( $_POST['reason'] ) ? sanitize_text_field( wp_unslash( $_POST['reason'] ) ) : '';
 		$products_to_replace = isset( $_POST['products_to_replace'] ) ? sanitize_text_field( wp_unslash( $_POST['products_to_replace'] ) ) : '';
 		$new_products        = isset( $_POST['new_products'] ) ? sanitize_text_field( wp_unslash( $_POST['new_products'] ) ) : '';
 		$create_coupon       = isset( $_POST['create_coupon'] ) ? filter_var( wp_unslash( $_POST['create_coupon'] ), FILTER_VALIDATE_BOOLEAN ) : false;
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 
 		// Validate inputs.
 		if ( empty( $reason ) ) {
@@ -291,8 +296,10 @@ class AjaxHandler {
 	public function get_history() {
 		$this->verify_request();
 
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verified in verify_request().
 		$page     = isset( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
 		$per_page = isset( $_POST['per_page'] ) ? absint( $_POST['per_page'] ) : 20;
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 
 		$repository = new ReturnRepository();
 		$returns    = $repository->get_all( $page, $per_page );
