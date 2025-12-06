@@ -27,7 +27,8 @@ global $wpdb;
 
 // Remove custom database table.
 $table_name = $wpdb->prefix . 'atlr_returns';
-$wpdb->query( "DROP TABLE IF EXISTS {$table_name}" ); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.DirectDatabaseQuery.SchemaChange -- Uninstall cleanup.
+$wpdb->query( "DROP TABLE IF EXISTS {$table_name}" );
 
 // Remove plugin options.
 $options_to_delete = array(
@@ -61,8 +62,10 @@ foreach ( $roles_with_cap as $role_name ) {
 }
 
 // Clear any transients.
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Uninstall cleanup.
 $wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '%_transient_atlr_%'" );
 $wpdb->query( "DELETE FROM {$wpdb->options} WHERE option_name LIKE '%_transient_timeout_atlr_%'" );
+// phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 
 // Clear scheduled cron events.
 wp_clear_scheduled_hook( 'atlr_daily_cleanup' );

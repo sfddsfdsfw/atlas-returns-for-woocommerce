@@ -113,10 +113,12 @@ class Plugin {
 		$last_day   = gmdate( 'Y-m-t 23:59:59' );
 
 		// Check if table exists.
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Custom table check.
 		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table_name ) ) !== $table_name ) {
 			return 0;
 		}
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Custom table.
 		return (int) $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT COUNT(*) FROM {$table_name} WHERE created_at BETWEEN %s AND %s",
