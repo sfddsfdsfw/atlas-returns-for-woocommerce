@@ -39,8 +39,8 @@ $descriptions   = \AtlasReturns\Core\CostCalculator::get_reason_descriptions();
 				<strong><?php esc_html_e( 'Monthly limit reached!', 'atlas-returns-for-woocommerce' ); ?></strong>
 				<?php
 				printf(
-					/* translators: %s: upgrade URL */
 					wp_kses(
+						/* translators: %s: upgrade URL */
 						__( '<a href="%s">Upgrade to Pro</a> for unlimited returns.', 'atlas-returns-for-woocommerce' ),
 						array( 'a' => array( 'href' => array() ) )
 					),
