@@ -13,6 +13,9 @@ use AtlasReturns\Core\CostCalculator;
  * Class Reports
  *
  * Generates reports and statistics for the analytics dashboard.
+ *
+ * @phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery
+ * @phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
  */
 class Reports {
 

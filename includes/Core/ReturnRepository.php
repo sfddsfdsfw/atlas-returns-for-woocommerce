@@ -11,6 +11,9 @@ namespace AtlasReturns\Core;
  * Class ReturnRepository
  *
  * Handles database operations for returns.
+ *
+ * @phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery
+ * @phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
  */
 class ReturnRepository {
 
