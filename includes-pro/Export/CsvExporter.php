@@ -28,6 +28,7 @@ class CsvExporter {
 	 * Handle export request via GET parameter.
 	 */
 	public function handle_export_request() {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Early return check, nonce verified below.
 		if ( ! isset( $_GET['atlr_export'] ) || 'csv' !== $_GET['atlr_export'] ) {
 			return;
 		}
@@ -54,6 +55,7 @@ class CsvExporter {
 		}
 
 		// Generate export URL with nonce.
+		// phpcs:disable WordPress.Security.NonceVerification.Missing -- Nonce verified by check_ajax_referer above.
 		$export_url = add_query_arg(
 			array(
 				'atlr_export' => 'csv',
@@ -63,6 +65,7 @@ class CsvExporter {
 			),
 			admin_url( 'admin.php' )
 		);
+		// phpcs:enable WordPress.Security.NonceVerification.Missing
 
 		wp_send_json_success( array( 'url' => $export_url ) );
 	}
@@ -76,8 +79,10 @@ class CsvExporter {
 		$table_name = $wpdb->prefix . 'atlr_returns';
 
 		// Get date filters.
+		// phpcs:disable WordPress.Security.NonceVerification.Recommended -- Nonce verified in handle_export_request().
 		$date_from = isset( $_GET['date_from'] ) ? sanitize_text_field( wp_unslash( $_GET['date_from'] ) ) : '';
 		$date_to   = isset( $_GET['date_to'] ) ? sanitize_text_field( wp_unslash( $_GET['date_to'] ) ) : '';
+		// phpcs:enable WordPress.Security.NonceVerification.Recommended
 
 		// Build query.
 		$where = '1=1';
@@ -104,6 +109,7 @@ class CsvExporter {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
+		// phpcs:disable WordPress.WP.AlternativeFunctions.file_system_operations_fopen,WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Writing to php://output for CSV download, WP_Filesystem not applicable.
 		$output = fopen( 'php://output', 'w' );
 
 		// Add BOM for Excel UTF-8 compatibility.
@@ -160,6 +166,7 @@ class CsvExporter {
 		}
 
 		fclose( $output );
+		// phpcs:enable WordPress.WP.AlternativeFunctions.file_system_operations_fopen,WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }

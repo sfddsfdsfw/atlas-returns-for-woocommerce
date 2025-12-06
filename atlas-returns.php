@@ -194,9 +194,6 @@ add_action( 'admin_notices', 'atlr_admin_notice_requirements' );
  * Initialize the plugin.
  */
 function atlr_init() {
-	// Load text domain.
-	load_plugin_textdomain( 'atlas-returns-for-woocommerce', false, dirname( ATLR_PLUGIN_BASENAME ) . '/languages' );
-
 	// Check requirements.
 	if ( ! atlr_check_requirements() ) {
 		return;
