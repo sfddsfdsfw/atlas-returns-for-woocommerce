@@ -8,6 +8,23 @@ Atlas Returns for WooCommerce is a WordPress plugin for managing product returns
 
 **Requirements:** PHP 7.4+, WordPress 6.0+, WooCommerce 7.0+
 
+## Folder Structure
+
+| Folder | Purpose | Git Tracked? |
+|--------|---------|--------------|
+| `atlas-returns-for-woocommerce/` | **Main development folder** - ALL development happens here | ✅ Yes |
+| `atlas-returns-release/` | **Build output only** - stores ZIP files for WordPress.org upload | ❌ No (.gitignore) |
+
+### Development Workflow
+```
+1. DEVELOP:    Edit code in atlas-returns-for-woocommerce/
+2. BUILD ZIP:  Create ZIP without Freemius SDK (see commands below)
+3. STORE:      ZIP goes to atlas-returns-release/
+4. UPLOAD:     Submit ZIP to WordPress.org
+```
+
+**IMPORTANT:** Never edit files in `atlas-returns-release/`. It only contains generated ZIP files that get recreated for each release.
+
 ## Important Links
 
 | Resource | URL |
