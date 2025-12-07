@@ -153,8 +153,8 @@ Contributions are welcome! Please:
 
 ## Support
 
-- **Documentation**: [pluginatlas.com/docs](https://pluginatlas.com/docs)
-- **Support**: [pluginatlas.com/support](https://pluginatlas.com/support)
+- **Documentation**: [pluginatlas.com/atlas-returns-for-woocommerce](https://pluginatlas.com/atlas-returns-for-woocommerce)
+- **Support**: [pluginatlas.com/contact](https://pluginatlas.com/contact)
 - **Issues**: [GitHub Issues](https://github.com/pluginatlas/atlas-returns-for-woocommerce/issues)
 
 ## License

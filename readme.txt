@@ -34,7 +34,7 @@ Professional return and exchange management for WooCommerce stores. Process retu
 
 = Pro Version Features =
 
-Upgrade to [Atlas Returns Pro](https://pluginatlas.com/atlas-returns) for:
+Upgrade to [Atlas Returns Pro](https://pluginatlas.com/atlas-returns-for-woocommerce) for:
 
 * **Unlimited returns** - No monthly limit
 * **All return reasons** - Customer fault, company fault with special handling, defective product replacement
@@ -69,7 +69,7 @@ The plugin handles all the calculations, creates a properly priced replacement o
 
 = Support =
 
-For support, feature requests, or bug reports, please visit our [support page](https://pluginatlas.com/support).
+For support, feature requests, or bug reports, please visit our [support page](https://pluginatlas.com/contact).
 
 == Installation ==
 
@@ -104,7 +104,7 @@ If the new products cost less than the returned products, the plugin can automat
 
 = How do I upgrade to Pro? =
 
-Visit [pluginatlas.com/atlas-returns](https://pluginatlas.com/atlas-returns) to purchase a Pro license. After purchase, you'll receive instructions to activate Pro features.
+Visit [pluginatlas.com/atlas-returns](https://pluginatlas.com/atlas-returns-for-woocommerce) to purchase a Pro license. After purchase, you'll receive instructions to activate Pro features.
 
 = Is there a limit on returns in the free version? =
 
