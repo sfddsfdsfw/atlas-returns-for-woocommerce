@@ -1,8 +1,8 @@
 # Atlas Returns for WooCommerce
 
 [![WordPress Plugin Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://wordpress.org/plugins/atlas-returns-for-woocommerce/)
-[![WordPress Tested](https://img.shields.io/badge/WordPress-6.7-green.svg)](https://wordpress.org/)
-[![WooCommerce Tested](https://img.shields.io/badge/WooCommerce-9.4-purple.svg)](https://woocommerce.com/)
+[![WordPress Tested](https://img.shields.io/badge/WordPress-6.9-green.svg)](https://wordpress.org/)
+[![WooCommerce Tested](https://img.shields.io/badge/WooCommerce-10.3.6-purple.svg)](https://woocommerce.com/)
 [![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 
