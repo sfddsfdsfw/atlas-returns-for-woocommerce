@@ -31,7 +31,7 @@ $total_pages = ceil( $total / $per_page );
 	<?php if ( empty( $returns ) ) : ?>
 		<div class="atlr-no-returns">
 			<p><?php esc_html_e( 'No returns have been processed yet.', 'atlas-returns-for-woocommerce' ); ?></p>
-			<a href="<?php echo esc_url( admin_url( 'admin.php?page=atlas-returns' ) ); ?>" class="button button-primary">
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=atlas-returns-for-woocommerce' ) ); ?>" class="button button-primary">
 				<?php esc_html_e( 'Process a Return', 'atlas-returns-for-woocommerce' ); ?>
 			</a>
 		</div>

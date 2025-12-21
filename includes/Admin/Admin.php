@@ -99,23 +99,15 @@ class Admin {
 	}
 
 	/**
-	 * Add inline CSS for menu items.
+	 * Add admin menu CSS.
 	 */
 	public function add_menu_styles() {
-		?>
-		<style>
-			.atlr-pro-tag {
-				background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-				color: #fff;
-				font-size: 9px;
-				padding: 2px 5px;
-				border-radius: 3px;
-				margin-left: 5px;
-				vertical-align: middle;
-				text-transform: uppercase;
-			}
-		</style>
-		<?php
+		wp_enqueue_style(
+			'atlr-admin-components',
+			ATLR_PLUGIN_URL . 'assets/dist/css/admin-components.min.css',
+			array(),
+			ATLR_VERSION
+		);
 	}
 
 	/**
@@ -178,7 +170,7 @@ class Admin {
 		if ( strpos( $hook_suffix, 'analytics' ) !== false && $plugin->is_pro() ) {
 			wp_enqueue_script(
 				'chartjs',
-				'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js',
+				ATLR_PLUGIN_URL . 'assets/dist/js/chart.min.js',
 				array(),
 				'4.4.1',
 				true

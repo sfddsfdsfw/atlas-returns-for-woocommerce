@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Atlas Returns for WooCommerce
- * Plugin URI: https://pluginatlas.com/atlas-returns
+ * Plugin URI: https://github.com/kostasmm/atlas-returns-for-woocommerce
  * Description: Professional return and exchange management for WooCommerce stores. Streamline returns, calculate costs, and create replacement orders with ease.
  * Version: 2.0.0
  * Author: PluginAtlas
@@ -12,6 +12,7 @@
  * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
+ * Requires Plugins: woocommerce
  * WC requires at least: 7.0
  * WC tested up to: 9.4
  *

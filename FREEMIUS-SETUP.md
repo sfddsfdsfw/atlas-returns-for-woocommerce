@@ -39,7 +39,7 @@ After registering, note down:
    │   ├── start.php
    │   ├── includes/
    │   └── ...
-   ├── atlas-returns.php
+   ├── atlas-returns-for-woocommerce.php
    └── ...
    ```
 
@@ -138,7 +138,7 @@ Before submitting to WordPress.org, ensure:
 
 During development, you can simulate Pro features without Freemius SDK:
 
-1. In `atlas-returns.php`, find:
+1. In `atlas-returns-for-woocommerce.php`, find:
    ```php
    define( 'ATLR_DEV_PRO', false );
    ```
@@ -156,7 +156,7 @@ This enables all Pro features without requiring a license.
 
 ```
 atlas-returns-for-woocommerce/
-├── atlas-returns.php
+├── atlas-returns-for-woocommerce.php
 ├── freemius/                    <-- Freemius SDK
 │   ├── start.php
 │   ├── includes/

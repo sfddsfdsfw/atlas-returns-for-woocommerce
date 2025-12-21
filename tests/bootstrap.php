@@ -8,10 +8,10 @@
 // Define test constants.
 define( 'ATLR_TESTING', true );
 define( 'ATLR_VERSION', '2.0.0' );
-define( 'ATLR_PLUGIN_FILE', dirname( __DIR__ ) . '/atlas-returns.php' );
+define( 'ATLR_PLUGIN_FILE', dirname( __DIR__ ) . '/atlas-returns-for-woocommerce.php' );
 define( 'ATLR_PLUGIN_DIR', dirname( __DIR__ ) . '/' );
 define( 'ATLR_PLUGIN_URL', 'http://example.com/wp-content/plugins/atlas-returns-for-woocommerce/' );
-define( 'ATLR_PLUGIN_BASENAME', 'atlas-returns-for-woocommerce/atlas-returns.php' );
+define( 'ATLR_PLUGIN_BASENAME', 'atlas-returns-for-woocommerce/atlas-returns-for-woocommerce.php' );
 define( 'ATLR_DEV_PRO', false );
 define( 'ABSPATH', dirname( __DIR__ ) . '/../../../../' );
 

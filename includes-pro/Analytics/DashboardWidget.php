@@ -32,6 +32,7 @@ class DashboardWidget {
 	public function __construct() {
 		$this->reports = new Reports();
 		add_action( 'wp_dashboard_setup', array( $this, 'register_widget' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_widget_styles' ) );
 	}
 
 	/**
@@ -101,77 +102,24 @@ class DashboardWidget {
 				</a>
 			</div>
 		</div>
-
-		<style>
-			.atlr-dashboard-widget {
-				margin: -12px;
-			}
-			.atlr-widget-stats {
-				display: flex;
-				border-bottom: 1px solid #eee;
-			}
-			.atlr-widget-stat {
-				flex: 1;
-				text-align: center;
-				padding: 15px 10px;
-				border-right: 1px solid #eee;
-			}
-			.atlr-widget-stat:last-child {
-				border-right: none;
-			}
-			.atlr-stat-value {
-				display: block;
-				font-size: 24px;
-				font-weight: 600;
-				color: #333;
-			}
-			.atlr-stat-value.atlr-positive {
-				color: #46b450;
-			}
-			.atlr-stat-value.atlr-negative {
-				color: #dc3232;
-			}
-			.atlr-stat-label {
-				display: block;
-				font-size: 12px;
-				color: #666;
-				margin-top: 5px;
-			}
-			.atlr-widget-breakdown {
-				padding: 15px;
-				border-bottom: 1px solid #eee;
-			}
-			.atlr-widget-breakdown h4 {
-				margin: 0 0 10px;
-				font-size: 13px;
-				color: #333;
-			}
-			.atlr-widget-breakdown ul {
-				margin: 0;
-				padding: 0;
-				list-style: none;
-			}
-			.atlr-widget-breakdown li {
-				display: flex;
-				justify-content: space-between;
-				padding: 5px 0;
-				font-size: 13px;
-			}
-			.atlr-reason-count {
-				font-weight: 600;
-				background: #f0f0f0;
-				padding: 2px 8px;
-				border-radius: 3px;
-			}
-			.atlr-widget-footer {
-				padding: 12px 15px;
-				text-align: right;
-			}
-			.atlr-widget-footer a {
-				font-size: 13px;
-				text-decoration: none;
-			}
-		</style>
 		<?php
+	}
+
+	/**
+	 * Enqueue dashboard widget styles.
+	 *
+	 * @param string $hook_suffix Current admin page.
+	 */
+	public function enqueue_widget_styles( $hook_suffix ) {
+		if ( 'index.php' !== $hook_suffix ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'atlr-admin-components',
+			ATLR_PLUGIN_URL . 'assets/dist/css/admin-components.min.css',
+			array(),
+			ATLR_VERSION
+		);
 	}
 }

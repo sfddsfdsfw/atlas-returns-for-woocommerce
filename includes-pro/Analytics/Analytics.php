@@ -51,12 +51,12 @@ class Analytics {
 			return;
 		}
 
-		// Chart.js from CDN (or local).
+		// Chart.js (local).
 		wp_enqueue_script(
 			'chartjs',
-			'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js',
+			ATLR_PLUGIN_URL . 'assets/dist/js/chart.min.js',
 			array(),
-			'4.4.0',
+			'4.4.1',
 			true
 		);
 

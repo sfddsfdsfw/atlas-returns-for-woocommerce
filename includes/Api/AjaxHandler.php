@@ -161,11 +161,12 @@ class AjaxHandler {
 
 		// Check monthly limit.
 		if ( ! $this->check_monthly_limit() ) {
+			$upgrade_url = function_exists( 'atlr_fs' ) ? atlr_fs()->get_upgrade_url() : admin_url( 'admin.php?page=atlas-returns-pricing' );
 			wp_send_json_error(
 				sprintf(
 					/* translators: %s: upgrade URL */
 					__( 'Monthly return limit reached. <a href="%s" target="_blank">Upgrade to Pro</a> for unlimited returns.', 'atlas-returns-for-woocommerce' ),
-					'https://pluginatlas.com/atlas-returns'
+					esc_url( $upgrade_url )
 				)
 			);
 		}
@@ -194,11 +195,12 @@ class AjaxHandler {
 		// Check reason availability for free version.
 		if ( ! defined( 'ATLR_PRO' ) || ! ATLR_PRO ) {
 			if ( $reason !== CostCalculator::REASON_CUSTOMER_FAULT ) {
+				$upgrade_url = function_exists( 'atlr_fs' ) ? atlr_fs()->get_upgrade_url() : admin_url( 'admin.php?page=atlas-returns-pricing' );
 				wp_send_json_error(
 					sprintf(
 						/* translators: %s: upgrade URL */
 						__( 'This return reason requires Pro. <a href="%s" target="_blank">Upgrade now</a>.', 'atlas-returns-for-woocommerce' ),
-						'https://pluginatlas.com/atlas-returns'
+						esc_url( $upgrade_url )
 					)
 				);
 			}

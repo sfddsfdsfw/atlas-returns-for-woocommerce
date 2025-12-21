@@ -25,7 +25,37 @@ class Plugin {
 	 * Constructor.
 	 */
 	private function __construct() {
+		$this->maybe_add_capabilities();
 		$this->init_hooks();
+	}
+
+	/**
+	 * Ensure capabilities are registered.
+	 *
+	 * This is a fallback in case the activation hook didn't fire properly.
+	 * It checks once per plugin version if capabilities exist.
+	 */
+	private function maybe_add_capabilities() {
+		$cap_version = get_option( 'atlr_capability_version', '' );
+
+		// Only run once per version.
+		if ( $cap_version === ATLR_VERSION ) {
+			return;
+		}
+
+		// Add capability to administrator.
+		$admin = get_role( 'administrator' );
+		if ( $admin && ! $admin->has_cap( 'manage_atlas_returns' ) ) {
+			$admin->add_cap( 'manage_atlas_returns' );
+		}
+
+		// Add capability to shop_manager.
+		$shop_manager = get_role( 'shop_manager' );
+		if ( $shop_manager && ! $shop_manager->has_cap( 'manage_atlas_returns' ) ) {
+			$shop_manager->add_cap( 'manage_atlas_returns' );
+		}
+
+		update_option( 'atlr_capability_version', ATLR_VERSION );
 	}
 
 	/**

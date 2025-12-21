@@ -1,6 +1,6 @@
 === Atlas Returns for WooCommerce ===
 Contributors: pluginatlas
-Tags: woocommerce, returns, refunds, exchange, rma, order management
+Tags: woocommerce, returns, refunds, exchange, rma
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4

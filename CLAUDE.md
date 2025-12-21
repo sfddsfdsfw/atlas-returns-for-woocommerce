@@ -52,13 +52,12 @@ Atlas Returns for WooCommerce is a WordPress plugin for managing product returns
 **IMPORTANT:** WordPress.org does NOT allow custom plugin updaters. The free version must NOT include the Freemius SDK folder.
 
 ```bash
-# Create ZIP WITHOUT Freemius for WordPress.org:
+# Create ZIP WITHOUT Freemius or Pro code for WordPress.org:
 cd wp-content/plugins
 rm -rf atlas-returns-temp
 mkdir -p atlas-returns-temp/atlas-returns-for-woocommerce
 cp -r atlas-returns-for-woocommerce/assets \
       atlas-returns-for-woocommerce/includes \
-      atlas-returns-for-woocommerce/includes-pro \
       atlas-returns-for-woocommerce/languages \
       atlas-returns-temp/atlas-returns-for-woocommerce/
 cp atlas-returns-for-woocommerce/*.php \
@@ -66,12 +65,13 @@ cp atlas-returns-for-woocommerce/*.php \
    atlas-returns-temp/atlas-returns-for-woocommerce/
 # Create ZIP
 cd atlas-returns-temp
-zip -r ../atlas-returns-release/atlas-returns-for-woocommerce-X.X.X.zip atlas-returns-for-woocommerce
+zip -r ../atlas-returns-release/atlas-returns-for-woocommerce.zip atlas-returns-for-woocommerce
 cd .. && rm -rf atlas-returns-temp
 ```
 
 ### Files to EXCLUDE from WordPress.org ZIP
 - `freemius/` - Plugin updater not allowed
+- `includes-pro/` - Pro-only code (violates trialware policy)
 - `vendor/` - Dev dependencies
 - `node_modules/` - Node packages
 - `tests/` - Unit tests
@@ -83,8 +83,9 @@ cd .. && rm -rf atlas-returns-temp
 ### Checklist Before Submission
 - [ ] Update `readme.txt` → `Tested up to:` to latest WordPress version
 - [ ] Update `readme.txt` → `Stable tag:` matches plugin version
-- [ ] Update `atlas-returns.php` → `Version:` header
+- [ ] Update `atlas-returns-for-woocommerce.php` → `Version:` header
 - [ ] Remove Freemius SDK folder from ZIP
+- [ ] Remove includes-pro/ folder from ZIP (Pro code not allowed)
 - [ ] Run Plugin Check tool locally
 - [ ] Test plugin works without Freemius (uses mock object)
 
@@ -183,7 +184,7 @@ When Freemius SDK is not present, the mock object:
 
 ### Development Mode
 ```php
-// In atlas-returns.php - simulate Pro for testing
+// In atlas-returns-for-woocommerce.php - simulate Pro for testing
 define( 'ATLR_DEV_PRO', true );
 ```
 
@@ -245,7 +246,7 @@ Stored in WordPress options table with `atlr_` prefix:
 ## Release Checklist
 
 ### For WordPress.org Updates
-1. Update version in `atlas-returns.php` header
+1. Update version in `atlas-returns-for-woocommerce.php` header
 2. Update `Stable tag` in `readme.txt`
 3. Update `Tested up to` in `readme.txt` if WordPress version changed
 4. Add changelog entry in `readme.txt`

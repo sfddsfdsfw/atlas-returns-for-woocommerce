@@ -14,7 +14,7 @@ $is_pro = defined( 'ATLR_PRO' ) && ATLR_PRO;
 	<h1>
 		<?php esc_html_e( 'Atlas Returns Settings', 'atlas-returns-for-woocommerce' ); ?>
 		<?php if ( ! $is_pro ) : ?>
-			<a href="https://pluginatlas.com/atlas-returns" target="_blank" class="atlr-upgrade-btn">
+			<a href="<?php echo esc_url( function_exists( 'atlr_fs' ) ? atlr_fs()->get_upgrade_url() : admin_url( 'admin.php?page=atlas-returns-pricing' ) ); ?>" class="atlr-upgrade-btn">
 				<?php esc_html_e( 'Upgrade to Pro', 'atlas-returns-for-woocommerce' ); ?>
 			</a>
 		<?php endif; ?>
@@ -41,7 +41,7 @@ $is_pro = defined( 'ATLR_PRO' ) && ATLR_PRO;
 				<li><?php esc_html_e( 'Custom email templates', 'atlas-returns-for-woocommerce' ); ?></li>
 				<li><?php esc_html_e( 'Priority support', 'atlas-returns-for-woocommerce' ); ?></li>
 			</ul>
-			<a href="https://pluginatlas.com/atlas-returns" target="_blank" class="button button-primary">
+			<a href="<?php echo esc_url( function_exists( 'atlr_fs' ) ? atlr_fs()->get_upgrade_url() : admin_url( 'admin.php?page=atlas-returns-pricing' ) ); ?>" class="button button-primary">
 				<?php esc_html_e( 'Get Pro Now', 'atlas-returns-for-woocommerce' ); ?>
 			</a>
 		</div>
